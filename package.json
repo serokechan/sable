@@ -1,0 +1,29 @@
+{
+  "name": "sable",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "app"
+  ],
+  "scripts": {
+    "chain": "anvil --port 8545 --host 127.0.0.1",
+    "build:libs": "bun run --filter=@sable/core build && bun run --filter=@sable/sdk build && bun run --filter=@sable/agents build",
+    "deploy": "bash scripts/deploy.sh",
+    "seed": "bun run build:libs && tsx scripts/seed.ts",
+    "recompute": "bun run build:libs && tsx scripts/recompute.ts",
+    "dev": "bun run build:libs && bun run --filter=@sable/app dev",
+    "build": "bun run build:libs && bun run --filter=@sable/app build",
+    "smoke": "bun run build:libs && tsx scripts/smoke.ts",
+    "test": "bun run --filter=@sable/core test",
+    "deploy:monad": "bash scripts/deploy-monad.sh",
+    "seed:monad": "bun run build:libs && tsx scripts/seed-testnet.ts",
+    "dev:monad": "SABLE_RPC_URL=https://testnet-rpc.monad.xyz SABLE_CHAIN_ID=10143 SABLE_DB_PATH=.data/sable-monad.db SABLE_START_BLOCK=65176384 SABLE_BOTS_FILE=../contracts/testnet-bots.json bun run --filter=@sable/app dev"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

@@ -1,0 +1,17 @@
+node_modules/
+.next/
+*.tsbuildinfo
+dist/
+out/
+cache/
+.data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+.env
+.env*.local
+!contracts/deployments/*.json
+contracts/testnet-bots.json
+broadcast/
+.DS_Store

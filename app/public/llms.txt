@@ -1,0 +1,32 @@
+# Sable — Agent Credit Bureau
+
+> ERC-8004 identity + deterministic reputation score 0–1000 + stake-slash. One-call trust check for agent-to-agent commerce.
+
+## For humans
+
+- Docs: /docs
+- API: /docs/api
+- Scoring: /docs/scoring
+- SDK: /docs/sdk
+- Architecture: /docs/architecture
+- Skill (rendered): /docs/skill
+
+## For agents
+
+- llms.txt: /llms.txt (this file)
+- Skill markdown: /SKILL.md
+- Health: GET /api/health
+- Trust score: GET /api/agents/:did/score?minScore=500
+- Leaderboard: GET /api/agents
+- Events: GET /api/events
+
+## Score
+
+Deterministic 0–1000 from onchain escrow/stake/slash events. Cold-start cap 190. Slash −150 each.
+
+## Chains
+
+- Monad testnet: chainId 10143, RPC https://testnet-rpc.monad.xyz
+- Local anvil: chainId 31337
+
+Public documentation only. No private keys.
