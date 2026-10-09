@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "chain": "anvil --port 8545 --host 127.0.0.1",
-    "build:libs": "bun run --filter=@sable/core build && bun run --filter=@sable/sdk build && bun run --filter=@sable/agents build",
+    "build:libs": "tsc -p packages/core/tsconfig.build.json && tsc -p packages/sdk/tsconfig.build.json && tsc -p packages/agents/tsconfig.build.json",
     "deploy": "bash scripts/deploy.sh",
     "seed": "bun run build:libs && tsx scripts/seed.ts",
     "recompute": "bun run build:libs && tsx scripts/recompute.ts",
